@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from '../styles/todo.module.css';
 import reset from '../assets/reset.ico';
 import add from '../assets/add.png';
+import completed from '../assets/completed.png'
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -61,19 +62,20 @@ const Todo = () => {
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       );
       const completedTodo = prevTodos.active.find((todo) => todo.id === id);
-       if(todos.active.length===1 && todos.completed.length!==0){
-        toast.success('Yay! you have completed all the tasks 🥳',{
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        })
-      }
-      else if(todos.active.length>0){
+    //   console.log(todos.active);
+    //    if(todos.active.length===0){
+    //     toast.success('Yay! you have completed all the tasks 🥳',{
+    //         position: "top-right",
+    //         autoClose: 5000,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: true,
+    //         draggable: true,
+    //         progress: undefined,
+    //         theme: "dark",
+    //     })
+    //   } else if
+      if(todos.active.indexOf(completedTodo) !== -1){
         toast.success('Hurray! task marked as complete 😀',{
               position: "top-right",
                   autoClose: 5000,
@@ -150,6 +152,7 @@ const Todo = () => {
             onClick={() => toggleTodo(todo.id)}
             style={{ textDecoration: todo.completed ? "line-through" : "none" }}
           >
+            {todo.completed && <img src={completed} alt="task-complted" />}
             {todo.text}
           </div>
         ))}

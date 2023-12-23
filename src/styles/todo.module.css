@@ -12,6 +12,7 @@
 
 .container h1 {
   color: #185a9d;
+  font-size: 3rem;
 }
 
 .addBtn {
@@ -39,7 +40,7 @@
 
 .addTodo{
     display: flex;
-    margin-top: 9rem;
+    margin-top: 5rem;
 }
 
 .addTodo input{
@@ -50,18 +51,28 @@
 }
 
 .cardContainer{
-    margin-top: 1rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .card{
-    border: 1px solid black;
+    border: 1px solid #98fb98;
     padding: 1rem;
-    margin-top: 1rem;
+    margin: 1rem;
     border-radius: 10px;
     text-transform: capitalize;
+    display: flex;
+    align-items: center;
 }
 
 .card:hover{
     box-shadow:0 0 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+}
+
+.card img{
+    height: 4vh;
+    margin-right: 1rem;
 }
