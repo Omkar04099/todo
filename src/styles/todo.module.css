@@ -46,6 +46,7 @@
     border-radius: 50px;
     font-size: 1rem;
     text-align: center;
+    border: none;
 }
 
 .cardContainer{
